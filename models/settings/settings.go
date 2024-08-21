@@ -505,6 +505,8 @@ func checkCronExpression(value any) error {
 type MetaConfig struct {
 	AppName                    string        `form:"appName" json:"appName"`
 	AppUrl                     string        `form:"appUrl" json:"appUrl"`
+	PrimaryColour              string        `form:"primaryColour" json:"primaryColour"`
+	SecondaryColour            string        `form:"secondaryColour" json:"secondaryColour"`
 	HideControls               bool          `form:"hideControls" json:"hideControls"`
 	SenderName                 string        `form:"senderName" json:"senderName"`
 	SenderAddress              string        `form:"senderAddress" json:"senderAddress"`

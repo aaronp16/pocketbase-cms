@@ -115,6 +115,16 @@
                 >
                     <i class="ri-tools-line" />
                 </a>
+                <a
+                    href="/content"
+                    class="menu-item"
+                    aria-label="Content"
+                    use:link
+                    use:active={{ path: "/content/?.*", className: "current-route" }}
+                    use:tooltip={{ text: "Content", position: "right" }}
+                >
+                    <i class="ri-article-line" />
+                </a>
             </nav>
 
             <div

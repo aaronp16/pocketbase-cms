@@ -43,7 +43,9 @@
         isSaving = true;
 
         try {
+            console.log(CommonHelper.filterRedactedProps(formSettings));
             const settings = await ApiClient.settings.update(CommonHelper.filterRedactedProps(formSettings));
+            console.log(settings);
             init(settings);
             addSuccessToast("Successfully saved application settings.");
         } catch (err) {
@@ -54,9 +56,6 @@
     }
 
     function init(settings = {}) {
-        $appName = settings?.meta?.appName;
-        $hideControls = !!settings?.meta?.hideControls;
-
         formSettings = {
             meta: settings?.meta || {},
         };
@@ -101,6 +100,37 @@
                         <Field class="form-field required" name="meta.appUrl" let:uniqueId>
                             <label for={uniqueId}>Application URL</label>
                             <input type="text" id={uniqueId} required bind:value={formSettings.meta.appUrl} />
+                        </Field>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <Field class="form-field required" name="meta.primaryColour" let:uniqueId>
+                            <label for={uniqueId}>Primary colour</label>
+                            <input
+                                type="color"
+                                id={uniqueId}
+                                required
+                                bind:value={formSettings.meta.primaryColour}
+                            />
+                        </Field>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <Field class="form-field required" name="meta.secondaryColour" let:uniqueId>
+                            <label for={uniqueId}>Secondary colour</label>
+                            <input
+                                type="color"
+                                id={uniqueId}
+                                required
+                                bind:value={formSettings.meta.secondaryColour}
+                            />
+                        </Field>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <Field class="form-field required" name="meta.logo" let:uniqueId>
+                            <label for={uniqueId}>Secondary colour</label>
+                            <input type="file" id={uniqueId} required bind:value={formSettings.meta.logo} />
                         </Field>
                     </div>
 

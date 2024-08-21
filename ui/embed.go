@@ -7,6 +7,8 @@ import (
 	"github.com/labstack/echo/v5"
 )
 
+//go:generate npm i
+//go:generate npm run build
 //go:embed all:dist
 var distDir embed.FS
 
